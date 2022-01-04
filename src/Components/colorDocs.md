@@ -1,0 +1,21 @@
+HTML supports 140 standard color names.
+https://www.w3schools.com/colors/colors_names.asp
+
+RGB Color Values: rgb(red, green, blue) - value between 0 and 255.
+
+RGBA Color Values: rgba(red, green, blue, alpha) - alpha: 0.0 (fully transparent) and 1.0 (not transparent at all)
+
+HEX Color Values: #rrggbb -  values between 00 and ff (same as decimal 0-255).
+
+HSL Color Values
+H - hue degree
+    - degree on the color wheel from 0 to 360. 
+    - 0 is red, 120 is green, and 240 is blue.
+S - Saturation %
+    - 0% means a shade of gray, and 100% is the full color.
+
+L - Lightness % - how much light you want to give the color
+    - 0% is black - 0% means no light (black)
+    - 100% means full lightness (white).
+
+
