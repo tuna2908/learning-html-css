@@ -1,0 +1,7 @@
+ul {
+  list-style-type: disc; /*cirle, square, none*/
+}
+
+li {
+  float: left;  /*float:left to display a list horizontally*/
+}

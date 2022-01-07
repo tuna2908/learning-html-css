@@ -1,0 +1,416 @@
+/*simple selector*/
+p {
+  /*element*/
+  text-align: center;
+  color: red;
+}
+
+#para1 {
+  /*id*/
+  text-align: center;
+  color: red;
+}
+
+.center {
+  /*className*/
+  text-align: center;
+  color: red;
+}
+
+* {
+  /*Universal Selector (apply to all)*/
+  text-align: center;
+  color: blue;
+}
+
+h1,
+h2,
+p {
+  /*grouping selector*/
+  text-align: center;
+  color: red;
+}
+
+p.intro {
+  /*element.class*/
+  color: aqua;
+}
+
+.color {
+  background-color: DodgerBlue; /*bg color*/
+  color: Tomato; /*text comments*/
+  border: 2px solid Tomato; /*border color*/
+}
+
+.background {
+  background-color: lightblue;
+  opacity: 0.3; /*BG opacity techniques*/
+  background: rgba(
+    0,
+    128,
+    0,
+    0.3
+  ); /* Green background with 30% opacity. same as above */
+  background-image: url('bgdesert.jpg'); /*Note: When using a background image, use an image that does not disturb the text*/
+  /**
+   *repeat horizontally
+   *@repeat-y
+   *@no-repeat
+   */
+  background-repeat: repeat-x;
+  background-position: right top;
+  background-attachment: fixed; /*image position: scroll | fixed*/
+}
+
+/**
+BG Order:
+  background-color
+  background-image
+  background-repeat
+  background-attachment
+  background-position
+
+Border Order
+  border-width
+  border-style (required)
+  border-color
+
+*/
+.background,
+.shorthand {
+  background: #ffffff url('img_tree.png') no-repeat right top;
+}
+
+.border {
+  border-style: dotted;
+
+  border-right-style: solid;
+  border-bottom-style: dotted;
+  border-left-style: solid;
+
+  border-style: dotted dashed solid double; /*top right bottom left*/
+  border-style: dotted solid double; /*top: dot - left, right: solid - bottom: double*/
+  border-style: dotted solid; /*top, bottom: dotted - left, right: solid*/
+  border-style: dotted; /*all dotted*/
+
+  border-width: 5px; /*medium|thick*/
+  border-width: 25px 10px 4px 35px; /*top right bottom left*/
+
+  border-color: green;
+  border-color: red green blue yellow; /*top right bottom left*/
+
+  border: 5px solid red; /*short-hand*/
+  border-left: 6px solid red;
+  border-radius: 5px; /*can't be short-handed*/
+}
+
+.margin {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 80px;
+
+  margin: 25px 50px 75px 100px;
+  margin: 25px 50px 75px; /*t-25, l,r-50, b-75*/
+  margin: 25px 50px; /*t,b-25, l,r-50*/
+  margin: 25px; /*t,r,b,l-25*/
+  margin: auto; /*auto padding horizontally to center of its container*/
+  margin-left: inherit; /*inherit from parents*/
+  margin: 0 0 50px 0; /*margin-right: 50px*/
+}
+
+.padding {
+  padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+
+  padding: 25px 50px 75px 100px;
+  padding: 25px 50px 75px; /*t-25, l,r-50, b-75*/
+  padding: 25px 50px; /*t,b-25, l,r-50*/
+  padding: 25px; /*t,r,b,l-25*/
+
+  width: 300px;
+  padding: 25px; /*=> total width = 350*/
+  box-sizing: border-box; /*=> keep the witdh at 300px by subtracting the content area width*/
+}
+
+/*
+auto - This is default. The browser calculates the height and width (inline vs block element)
+length - height/width in px, cm etc.
+% - percent to parent container
+initial - default value?
+inherit - inherited from its parent
+*/
+.widthHeight {
+  height: 200px;
+  width: 50%;
+  max-width: none; /*length unit | % | none*/
+  background-color: powderblue;
+}
+
+/*CSS Outline*/
+/*
+width:
+    thin (typically 1px)
+    medium (typically 3px)
+    thick (typically 5px)
+    A specific size (in px, pt, cm, em, etc)
+*/
+.outline {
+  outline-style: dotted; /*dashed | solid  | double | groove | ridge | inset | outset | none | hidden*/
+  outline-color: powderblue; /*HEX, RGB and HSL*/
+  outline-width: 100px; /*thin | medium | thick => outline border width*/
+  outline-offset: 10px; /*space between outline and border*/
+  outline: 5px solid yellow; /*width style color*/
+}
+
+/*TEXT AND FONT*/
+/*
+shorthand: 
+    font-style
+    font-variant
+    font-weight
+    font-size/line-height   (required)
+    font-family (required)
+*/
+.text {
+  background-color: lightgrey;
+  color: blue;
+  text-align: center; /*right left center justify: just like wordOffice*/
+
+  vertical-align: baseline; /*same line*/
+  vertical-align: text-top;
+  vertical-align: text-bottom;
+  vertical-align: sub;
+  vertical-align: super;
+
+  direction: rtl; /*like dbo tag*/
+  unicode-bidi: bidi-override;
+
+  text-decoration: none; /*like office: underline, bold, itatlic, etc.*/
+  text-decoration: overline;
+  text-decoration: line-through;
+  text-decoration: underline;
+
+  text-transform: uppercase;
+  text-transform: lowercase;
+  text-transform: capitalize; /*capitalize every first character of the word*/
+
+  letter-spacing: 5px; /*space between letters*/
+  letter-spacing: -1px;
+
+  line-height: 0.8; /*space between lines*/
+
+  text-indent: 50px; /*1st line indent*/
+
+  word-spacing: 10px; /*space between words*/
+
+  white-space: nowrap; /**/
+  white-space: normal;
+  white-space: pre;
+  white-space: pre-line;
+  white-space: pre-wrap;
+
+  text-shadow: 2px 2px;
+  text-shadow: 2px 2px red;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
+
+  /*font-safe: https://www.w3schools.com/css/css_font_websafe.asp*/
+  font-family: 'Times New Roman', Times, serif; /*start with preferred one and end with font family*/
+
+  font-style: normal; /*normal | italic | oblique */
+  font-weight: bold;
+
+  font-size: 40px; /*default: 16px = 1em | vw: viewport width".*/
+
+  font: italic small-caps bold 12px/30px Georgia, serif;
+  font: 20px Arial, sans-serif;
+}
+
+/* CSS LINK*/
+/* unvisited link */
+/* attention: order does matter!!*/
+a:link {
+  color: red;
+  cursor: auto; /*cursor type: crosshair |e-resize |help, etc. https://www.w3schools.com/css/css_link.asp*/
+}
+
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+
+/*CSS Lists*/
+ul.a {
+  list-style-type: circle;
+  list-style-type: square;
+  list-style-type: upper-roman;
+  list-style-type: lower-alpha;
+  list-style-type: none;
+  list-style-image: url('sqpurple.gif'); /*image item marker*/
+
+  list-style-position: outside;
+  list-style-position: inside; /*as part of text content*/
+}
+
+ul.override-list-padding {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/*
+short-hand order:
+    list-style-type
+    list-style-position
+    list-style-image
+*/
+ul {
+  list-style: square inside url('sqpurple.gif');
+}
+
+ol li {
+  /*style of ol and child li*/
+  background: #ffe5e5;
+  padding: 5px;
+  margin-left: 35px;
+}
+
+/*TABLE STYLE*/
+/*watch table.css*/
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+th,
+td {
+  height: 70px;
+  text-align: center; /*text align for td and th*/
+  vertical-align: middle; /*top bottom middle*/
+  padding: 15px;
+  border-bottom: 1px solid #ddd; /*bottom line*/
+}
+
+tr:hover {
+  background-color: yellow;
+}
+
+th {
+  background-color: #04aa6d;
+  color: white;
+}
+
+div.containedTable {
+  overflow-x: auto; /*reponsive table*/
+}
+
+caption {
+  caption-side: bottom; /*caption position*/
+  border-spacing: 4px; /*border + border-spacing + next cell*/
+}
+
+/*CSS LAYOUT*/
+/*
+Examples of block-level elements:
+    <div>
+    <h1> - <h6>
+    <p>
+    <form>
+    <header>
+    <footer>
+    <section>
+Examples of inline elements:
+    <span>
+    <a>
+    <img>
+*/
+div.cssLayout {
+  display: block; /*default of block element*/
+  display: inline; /*default of inline element*/
+  display: none; /*remove component area from the DOM*/
+  visibility: hidden; /*hidden the content, the block area style there*/
+}
+
+li.overrideLayout {
+  display: inline; /*override from block to inline*/
+}
+
+div.normalWidth {
+  width: 500px;
+  margin: auto; /*align center using margin spaces*/
+}
+
+div.maxWidth {
+  max-width: 500px; /*browser will adjust the width by window size*/
+  margin: auto;
+}
+
+/*
+There are five different position values:
+    static      (default)
+    relative    relative to its normal position. eg: left + normalDivFlow
+    fixed       relative to the viewport
+    absolute    relative to the nearest positioned element ancestor. no ancestor => <body/>
+                play attention to the positioned parents
+                can overlap other element
+    sticky      relative to its normal position (like relative) or the scroll position (like fixed). 
+*/
+div.position {
+  position: static;
+}
+div.sticky {
+  position: -webkit-sticky; /* for Safari */
+  position: sticky;
+  top: 0; /*relative position equal to zero (not changed, but required in order to be effective)*/
+  background-color: green;
+  border: 2px solid #4caf50;
+}
+.container {
+  position: relative; /*set parent to relative before set child position to absolute for the correctness*/
+  clip-path: rect(
+    0px,
+    60px,
+    200px,
+    0px
+  ); /*clip the container by: top, right, bottom, left*/
+}
+/*
+NOTE: z-index only works on positioned elements (position: absolute, position: relative, position: fixed, or position: sticky) 
+and flex items (elements that are direct children of display: flex elements).
+*/
+div.zIndex {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+}
+
+/*
+NOTE: The overflow property only works for block elements with a specified height.
+The overflow property has the following values:
+    visible - DEFAULT. The overflow is not clipped. The content renders OUTSIDE the element's box
+    hidden - The overflow is CLIPPED, and the rest of the content will be invisible
+    scroll - The overflow is CLIPPED WITH SCROLLBAR is added to see the rest of the content
+    auto - Similar to scroll, but it adds scrollbars ONLY when necessary
+*/
+div.overFlow {
+  overflow: visible;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  overflow-wrap: normal; 
+  overflow-wrap: anywhere; 
+  overflow-wrap: break-word; /*break long word*/
+}

@@ -105,6 +105,12 @@ const Paragraph = () => {
           USA
         </address>
       </div>
+      <p>   {/*use span to markup text in paragraph*/}
+        My mother has <span style="color:blue;font-weight:bold">blue</span> eyes
+        and my father has{' '}
+        <span style="color:darkolivegreen;font-weight:bold">dark green</span> {/*span is a inline*/}
+        eyes.
+      </p>
     </div>
   );
 };
@@ -231,12 +237,23 @@ const Images = () => {
         <div //by defaut repeat itself, horizontally and vertically, until it reaches the end of the element
           style={{
             backgroundImage: "url('img_girl.jpg')", //background image
-            backgroundRepeat: "no-repeat",     //prevent repeating
-            backgroundSize: "cover",       //cover the whole div
-            backgroundAttachment: "fixed",   //make sure img cover the whole div
-            backgroundSize: "100% 100%",      //strecth the image size by the parent tag (eg: div, body, etc)
+            backgroundRepeat: 'no-repeat', //prevent repeating
+            backgroundSize: 'cover', //cover the whole div
+            backgroundAttachment: 'fixed', //make sure img cover the whole div
+            backgroundSize: '100% 100%', //strecth the image size by the parent tag (eg: div, body, etc)
           }}
         />
+      </div>
+
+      <div>
+        <picture>
+          {' '}
+          {/*support all screen size via attrib media, and all image format via srcset */}
+          <source media="(min-width: 650px)" srcset="img_food.jpg" />
+          <source media="(min-width: 650px)" srcset="img_car.jpg" />
+          <img src="img_girl.jpg" />{' '}
+          {/*must specify if no browser support tag <picture/> */}
+        </picture>
       </div>
     </>
   );
