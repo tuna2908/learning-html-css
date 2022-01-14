@@ -410,7 +410,531 @@ div.overFlow {
   overflow: visible;
   overflow-x: hidden;
   overflow-y: scroll;
-  overflow-wrap: normal; 
-  overflow-wrap: anywhere; 
+  overflow-wrap: normal;
+  overflow-wrap: anywhere;
   overflow-wrap: break-word; /*break long word*/
 }
+
+/*
+The float property can have one of the following values:
+    left - The element floats to the left of its container
+    right - The element floats to the right of its container
+    none - The element does not float (will be displayed just where it occurs in the text). This is default
+    inherit - The element inherits the float value of its parent
+*/
+div.float {
+  float: left; /*turn block -> inline + bring below content up*/
+  float: right; /*eg: div = inline => float right => text bellow fill in its space*/
+}
+
+/*
+the clear Property
+    -  set the next element below (not on right or left)
+
+The clear property can have one of the following values:
+    none - DEFAULT. Not pushed below left or right floated elements.
+    left - The element is pushed below LEFT floated elements
+    right - The element is pushed below RIGHT floated elements
+    both - The element is pushed below both LEFT and RIGHT floated elements
+    inherit - The element inherits the clear value from its parent
+*/
+div.layoutClear {
+  clear: left;
+  overflow: auto; /*use if floated element taller than container*/
+}
+
+/*FLOAT EXAMPLE*/
+* {
+  box-sizing: border-box; /*keeping the elements into the box and does not break when adding extra padding, margin, etc.*/
+}
+
+.box {
+  float: left;
+  width: 33.33%; /* three boxes (use 25% for four, and 50% for two, etc) */
+  padding: 50px; /* if you want space between the images */
+}
+
+div.layoutInlineBox {
+  display: inline; /*dont breakline, size equal to content size*/
+  display: inline-block; /*like inline, but adding ability to set width and height*/
+  display: block; /*breakline, witdth 100% when possible*/
+}
+
+/*H AND V ALIGN*/
+.HCenter {
+  margin: auto; /*align center*/
+  width: 50%; /*prevent from strecthing out of its container*/
+  border: 3px solid green;
+  padding: 10px;
+}
+
+.HTextCenter {
+  text-align: center;
+  border: 3px solid green;
+}
+.HImageCenter {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /*or margin:auto; */
+  width: 40%;
+}
+
+.Vcenter {
+  padding: 70px 0; /*using equal top and bottom padding*/
+  border: 3px solid green;
+}
+
+.HVCenter {
+  padding: 70px 0; /*V Center*/
+  border: 3px solid green;
+  text-align: center; /*H Center*/
+}
+
+.HVcenter {
+  height: 200px;
+  position: relative;
+  border: 3px solid green;
+}
+
+.HVcenter p {
+  margin: 0;
+  position: absolute;
+  top: 50%; /*init position in top left 50*/
+  left: 50%;
+  transform: translate(-50%, -50%); /*translate it selft to its center*/
+}
+
+.HVFlexcenter {
+  display: flex;
+  justify-content: center; /*only in flex*/
+  align-items: center; /*only in flex*/
+  height: 200px;
+  border: 3px solid green;
+}
+
+/*CSS Combinators*/
+/*
+There are four different combinators in CSS:
+    descendant selector (space)
+    child selector (>)
+    adjacent sibling selector (+)
+    general sibling selector (~)
+*/
+
+div p {
+  /*all p descendant*/
+  background-color: yellow;
+}
+
+div > p {
+  /*all div direct p childs not descendant*/
+  background-color: yellow;
+}
+
+div + p {
+  /*adjacent/next siblings*/
+  background-color: yellow;
+}
+
+div ~ p {
+  /*all siblings (can be more than 2)*/
+  background-color: yellow;
+}
+
+/*
+A pseudo-class is used to define a special state of an element.
+For example, it can be used to:
+    Style an element when a user mouses over it
+    Style visited and unvisited links differently
+    Style an element when it gets focus
+syntax:
+    selector:pseudo-class {
+        property: value;
+    }
+*/
+
+a.highlight:hover {
+  /*class and pseudo*/
+  color: #ff0000;
+}
+
+div:hover {
+  /*element and pseudo*/
+  background-color: blue;
+}
+
+/*first child*/
+p {
+  /*to all p*/
+  color: blue;
+}
+
+p:first-child {
+  /*to the first p of any container*/
+  color: blue;
+}
+
+p i:first-child {
+  /*to the first i of any p*/
+  color: blue;
+}
+
+p:first-child i {
+  /*to all i of the first p inside any container*/
+  color: blue;
+}
+
+/*PSEUDO-ELEMENT*/
+/* used to style specified parts of an element.
+For example, it can be used to:
+    Style the first letter, or line, of an element
+    Insert content before, or after, the content of an element
+
+Syntax: 
+    selector::pseudo-element {
+        property: value;
+    }
+
+Ref: https://www.w3schools.com/css/css_pseudo_elements.asp
+*/
+
+p::first-line {
+  /*first line of p . only for block-element*/
+  color: #ff0000;
+  font-variant: small-caps;
+}
+
+p::first-letter {
+  color: #ff0000;
+  font-size: xx-large;
+}
+
+h1::before {
+  /*insert some content before the content of an element.*/
+  content: url(smiley.gif);
+}
+
+h1::after {
+  content: url(smiley.gif);
+}
+
+::marker {
+  /*list marker style*/
+  color: red;
+  font-size: 23px;
+}
+
+::selection {
+  /*style the selected text parts*/
+  color: red;
+  background: yellow;
+}
+
+/*CSS OPACITY (THE TRANSPARENCY)*/
+img {
+  opacity: 0.5;
+}
+
+img:hover {
+  opacity: 1;
+}
+
+/*CSS NAV-BAR*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li a {
+  /*vertical nav-bar*/
+  display: block; /*make the whole area clickable*/
+  width: 60px;
+}
+
+/*better vertical navbar*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  background-color: #f1f1f1;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color on hover */
+li a:hover {
+  background-color: #555;
+  color: white;
+}
+
+/*adding border to navbar*/
+ul {
+  border: 1px solid #555;
+}
+
+li {
+  text-align: center;
+  border-bottom: 1px solid #555;
+}
+
+li:last-child {
+  border-bottom: none;
+}
+
+/*FULL - HEIGHT SIDE BAR*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 25%;
+  background-color: #f1f1f1;
+  height: 100%; /* Full height */
+  position: fixed; /* Make it stick, even on scroll */
+  overflow: auto; /* Enable scrolling if the sidenav has too much content */
+}
+
+/*Horizontal navbar*/
+li {
+  display: inline;
+}
+/*or*/
+li {
+  float: left;
+}
+
+a {
+  display: block;
+  padding: 8px;
+  background-color: #dddddd;
+}
+
+/*H Nav Bar example*/
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #111;
+}
+
+ul {
+  /*sticky H navbar*/
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+
+/*PRATICE - MY OWN DROP CONTENT*/
+ul {
+  list-style-type: none;
+  background-color: black;
+  overflow: hidden;
+  padding: 0px 0px;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  padding: 10px 16px;
+}
+
+li a:hover {
+  background-color: gray;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: gray;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: black;
+}
+
+/*Image drop-down from the right side*/
+.dropdownArea {
+  display: inline-block;
+  position: relative; /*set positioned element*/
+}
+
+.dropdownImg {
+  width: 400px;
+  display: none;
+}
+
+.dropdownArea:hover .dropdownImg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  left: 50%; /*50% of container*/
+  transform: translateX(-50%);
+  right: 0; /*drop down right to left*/
+  left: 0; /*left to right*/
+}
+
+/*CSS Counter Variable*/
+/*
+To work with CSS counters we will use the following properties:
+  counter-reset - Creates or resets a counter
+  counter-increment - Increments a counter value
+  content - Inserts generated content
+  counter() or counters() function - Adds the value of a counter to an element
+*/
+body {
+  counter-reset: section; /*create variable name section*/
+}
+
+h2::before {
+  counter-increment: section; /*functin body init*/
+  content: 'Section ' counter(section) ': '; /*insert content*/
+}
+
+/*nesting counter*/
+body {
+  counter-reset: section;
+}
+
+h1 {
+  counter-reset: subsection;
+}
+
+h1::before {
+  counter-increment: section;
+  content: 'Section ' counter(section) '. ';
+}
+
+h2::before {
+  counter-increment: subsection;
+  content: counter(section) '.' counter(subsection) ' ';
+}
+
+/*CSS WEBSITE LAYOUT*/
+/* The navbar container */
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/* Navbar links */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* Links - change color on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/*THREE COLUMN CONTENT*/
+/* Create three equal columns that float next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other on smaller screens (600px wide or less) */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+
+/*TWO COLUMN CONTENT*/
+.column {
+  float: left;
+}
+
+/* Left and right column */
+.column.side {
+  width: 25%;
+}
+
+/* Middle column */
+.column.middle {
+  width: 50%;
+}
+
+/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column.side,
+  .column.middle {
+    width: 100%;
+  }
+}
+
+
+/*Specificity*/
+.button {
+  background-color: #8c8c8c !important; /*highest specificity of all*/
+  color: white !important;
+  padding: 5px !important;
+  border: 1px solid black !important;
+}
+
+#myDiv a {
+  color: red;
+  background-color: yellow;
+}
+
+
+/*Math functions*/
+#div1 {
+  position: absolute;
+  left: 50px;
+  width: calc(100% - 100px);  /*clear right*/
+  width: max(50%, 300px);
+  width: min(50%, 300px);
+  border: 1px solid black;
+  background-color: yellow;
+  padding: 5px;
+}
+

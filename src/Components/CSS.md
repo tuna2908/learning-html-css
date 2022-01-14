@@ -46,3 +46,18 @@ GOOGLE FONTS
   - <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&effect=neon|outline|emboss|shadow-multiple">
 - beautiful font paring: https://www.w3schools.com/css/css_font_pairings.asp
 
+Image Sprites Technique
+- Descirption: 
+  - using one big image, and translate + crop to have the proper position
+
+ATTRIBUTE SELECTORS
+- Ref: https://www.w3schools.com/css/css_attribute_selectors.asp
+
+CSS-FORM-STYLE
+- Ref: https://www.w3schools.com/css/css_form.asp
+
+CSS-COUNTER
+- Ref: https://www.w3schools.com/css/css_counters.asp
+
+CSS-unit
+- Ref: https://www.w3schools.com/css/css_units.asp

@@ -36,3 +36,21 @@
     transform: rotate(360deg);
   }
 }
+
+.dropdownArea {
+  display: inline-block;
+  position: relative;
+}
+
+.dropdownImg {
+  width: 400px;
+  display: none;
+  /* width: 100%; */
+}
+
+.dropdownArea:hover .dropdownImg {
+  display: block;
+  position: absolute;
+  left: 50%; /*50% of container*/
+  transform: translateX(-50%);
+}

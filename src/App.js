@@ -27,6 +27,18 @@ function App() {
         <li>Tea</li>
         <li>Coca Cola</li>
       </ul>
+      <br></br>
+      <div style={{ display: 'inline-block' }} className="dropdownArea">
+        <img
+          src="https://www.w3schools.com/css/img_5terre.jpg"
+          style={{ width: 100 }}
+        ></img>
+
+        <img
+          src="https://www.w3schools.com/css/img_5terre.jpg"
+          className="dropdownImg"
+        ></img>
+      </div>
     </div>
   );
 }
