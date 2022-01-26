@@ -12,27 +12,27 @@ export const Form = () => {
        */}
       <form action="/action_page.php" target="_blank">
         {/*sematic element*/}
-        <label for="fname">First name:</label>{' '}
+        <label for="fname">First name:</label>
         {/*define label "for" form element(s). "for="id""*/}
         <br />
         <input type="text" id="fname" name="fname" />
         {/*input text. default width is 20 char*/}
         <br />
-        <label for="lname">Last name:</label>{' '}
+        <label for="lname">Last name:</label>
         {/*useful for screen-reader users*/}
         <br />
         <input type="radio" id="lname" name="lname" />
         {/*radio button. rbuttons with same name will be auto group*/}
         <br />
-        <label for="lname">radio:</label>{' '}
+        <label for="lname">radio:</label>
         {/*with input with small area (cb, radio). click to their label to toggle it*/}
         <br />
-        <input type="checkbox" id="lname" name="lname" />{' '}
+        <input type="checkbox" id="lname" name="lname" />
         {/*each input should have name or it will not be submit in server form hanlder*/}
         <br />
         <label for="lname">submit:</label>
         <br />
-        <input type="submit" id="lname" name="lname" />{' '}
+        <input type="submit" id="lname" name="lname" />
         {/*obsolete in modern framework*/}
         <br />
         <label for="lname">button:</label>
@@ -41,10 +41,10 @@ export const Form = () => {
         <br />
         <label for="cars">car drop down list:</label>
         <select id="cars" name="cars" size="3" multiple>
-          {/*just dont do the "size" "multiple" thing*/}
+          {/*just dont do the "size" "multiple" thing, reasons: https://www.w3schools.com/html/tryit.asp?filename=tryhtml_elem_select_size*/}
           <option value="volvo" selected>
             Volvo
-          </option>{' '}
+          </option>
           {/*mark as selected item*/}
           <option value="saab">Saab</option>
           <option value="fiat">Fiat</option>
@@ -77,7 +77,7 @@ export const Form = () => {
 
       <form action="/action_page.php">
         {/**
-         * input seuggestion list
+         * input suggestion list
          * @list = datalistId
          * */}
         <input list="browsers" />
@@ -100,7 +100,7 @@ export const Form = () => {
           type="text"
           id="fname"
           name="fname"
-          readonly //can be modified
+          readonly //can't be modified
           disabled //disblale from editing and style
           size="4" //size in character
           maxlength="4"
@@ -165,7 +165,7 @@ export const Form = () => {
           name="custId"
           value="3487"
         />
-        <input //numberic input with max min value range
+        <input //numeric input with max min value range
           type="number"
           id="quantity"
           name="quantity"

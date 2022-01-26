@@ -9,7 +9,7 @@ BLOCK ELEMENT
 - A block level element has a top and a bottom margin, whereas an inline element does not.
 
 Inline Elements
-- An inline element can contain other element
+- An inline element can't contain other element
 - An inline element does not start on a new line.
 - An inline element only takes up as much width as necessary.
 - This is a <span> element inside a paragraph.
@@ -62,10 +62,12 @@ The HTML <head> Element
         }
     </script>
 
-HTML Layout Elements: https://www.w3schools.com/html/html_layout.asp
+HTML Layout Elements (block elements): https://www.w3schools.com/html/html_layout.asp
 - <header> - Defines a header for a document or a section
 - <nav> - Defines a set of navigation links
 - <section> - Defines a section in a document
+- <article> - Defines an independent, self-contained content
+- <aside> - Defines content aside from the content (like a sidebar)
 - <footer> - Defines a footer for a document or a section
 
 HTML Layout Techniques
@@ -179,12 +181,12 @@ HTML Uniform Resource Locators
     - eg:  https://www.w3schools.com/html/default.asp - define address to access the doc default.asp
            https://www.w3schools.com/ - define address to access the html index.html
 
-- syntax: <span>scheme://prefix.domain:port/path/filename<span>
+- syntax: <span>scheme://prefix.domain:port/PATH/filename<span>
     scheme - defines the type of Internet service (most common is http or https)
     prefix - defines a domain prefix (default for http is www)
     domain - defines the Internet domain name (like w3schools.com)
     port - defines the port number at the host (default for http is 80)
-    path - defines a path at the server (If omitted: the root directory of the site)
+    PATH - defines a path at the server (If omitted: the root directory of the site)
     filename - defines the name of a document or resource
 
 - ref: https://www.w3schools.com/html/html_urlencode.asp

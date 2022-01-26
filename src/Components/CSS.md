@@ -61,3 +61,7 @@ CSS-COUNTER
 
 CSS-unit
 - Ref: https://www.w3schools.com/css/css_units.asp
+
+
+CSS ADVANCED
+- Image Border: skip
