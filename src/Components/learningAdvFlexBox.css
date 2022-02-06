@@ -1,0 +1,159 @@
+/*
+                        CSS Flexbox Layout Module
+Before the Flexbox Layout module, there were four layout modes:
+    Block, for sections in a webpage
+    Inline, for text
+    Table, for two-dimensional table data
+    Positioned, for explicit position of an element
+The Flexible Box Layout Module, makes it easier to design flexible responsive layout structure without using float or positioning.
+*/
+
+/*STEP 1: define Flex container*/
+/*Parent Element (Container)*/
+.flex-container {
+  display: flex;
+}
+
+.flex-container-other-properties {
+  display: flex;
+  /*
+    flex-direction the direction you want to stack the flex-item
+    column: from top to bottom
+    row: from left to right (default)
+    column-reverse: vertically (but from bottom to top)
+    row-reverse: horizontally (but from right to left): 
+  */
+  flex-direction: column;
+  /*
+    flex-wrap should be wrap (display partialy on other lines) or not
+    wrap: yes - wrap it please
+    nowrap: no (default)
+    flex-wrap: wrap-reverse - wrap but in reverse (last line display first)
+  */
+  flex-wrap: wrap;
+  /*
+    flex-flow shorthand for flex-direction and flex-wrap properties.
+  */
+  flex-flow: row wrap;
+  /*
+    justify-content
+        flex-direction: row;    align flex-items horizontally
+        flex-direction: column;    align flex-items vertically
+  */
+  justify-content: center; /*Items center*/
+  justify-content: flex-start; /*Items in beginning*/
+  justify-content: flex-end; /*Items at the end*/
+  justify-content: space-around;
+  justify-content: space-between; /*see it yourself*/
+  /*
+    align-items
+        flex-direction: row;    align flex-items vertically
+        flex-direction: column;    align flex-items horizontally
+  */
+  align-items: center;
+  align-items: flex-start;
+  align-items: flex-end;
+  align-items: stretch; /*default: stretch items to fill the containers*/
+  align-items: baseline; /*skip =))*/
+
+  /*
+    align-content property is used to align the flex lines.
+    in orther words, just like justify-content but vertically
+    vs align-items
+        - align-items: align item in its row, whereas align-content align all items in the container
+  */
+  height: 600px; /*need to have extra space, to be aligned*/
+  flex-wrap: wrap; /*neeed wrap => more than one row*/
+  align-content: space-between;
+}
+
+.perfectlyCenter {
+  justify-content: center;
+  align-items: center; /*remember align-content will not work*/
+}
+
+/*FLEX ITEM - the direct child of flex container*/
+/*
+<div class="flex-container">
+  <div>1</div>
+  <div>2</div>
+  <div>3</div>
+  <div>4</div>
+</div>
+*/
+.flex-item-props {
+  order: 4; /*displayed order of flex-items*/
+  flex-grow: 1; /*decide how a flex-item size compare to the others - this is reponsive. meaning if you change vport width, the ratio stay the same*/
+  /*the rule is like this. the smallest is one uinit, the 2nd has grow 2 => double in size*/
+  /*flex-shrink - specifies how much a flex item will shrink relative to the rest of the flex items.*/
+  flex-shrink: 0; /*do not shrink*/
+  flex-shrink: 1; /*do shrink like the others*/
+
+  flex-basis: 200px; /*inital length*/
+  flex: 0 0 200px; /*shorthand for flex-grow, flex-shrink, and flex-basis properties.*/
+
+  align-self: center; /*overide align-itemts for only applicable one*/
+}
+
+/*masory imagery with flex-box example*/
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+/*alternative solution*/
+
+/* Create four equal columns that sits next to each other */
+.column {
+  float: left;
+  max-width: 25%;
+}
+
+.column img {
+  margin-top: 8px;
+  padding: 0 4px;
+  vertical-align: middle;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media (max-width: 800px) {
+  .column {
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media (max-width: 600px) {
+  .column {
+    max-width: 100%;
+  }
+}

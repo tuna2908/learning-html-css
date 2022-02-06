@@ -65,7 +65,7 @@
   background-size: 100px 80px; /*width height | contain | cover*/
   background-size: contain; /*scale the img both W and H as much as possible*/
   background-size: cover; /*completely cover the img - some part can be cropped*/
-  background-size: 'no-background-size'; /*no size, original size*/
+  background-size: "no-background-size"; /*no size, original size*/
 
   /*multiple size example*/
   background: url(img_tree.gif) left top no-repeat,
@@ -73,7 +73,7 @@
   background-size: 50px, 130px, auto;
 
   /*center image on the screen (always)*/
-  background: url(img_man.jpg) no-repeat center fixed;
+  background: url(img_man.jpg) no-repeat center fixed;  /*BG image, background-repeat <=> BG-position, bg attachmment:fixed|scroll*/
   background-size: cover;
 
   background-origin: border-box; /*start from border*/
@@ -168,7 +168,7 @@
 }
 
 /*box-shadow and text-shadow*/
-/*shadow: size x size y blur-radius color*/
+/*shadow: size x size y blur-radius (optional) spread width color*/
 div {
   box-shadow: 10px 10px 5px 12px grey;
   text-shadow: 10px 10px 5px 12px grey;
@@ -184,7 +184,7 @@ div {
   width: 200px;
   border: 1px solid #000000;
   overflow: hidden; /*hidden the overfow part (M) | def: visible*/
-  text-overflow: clip; /*ellipsis*/
+  text-overflow: clip; /*clip | ellipsis "..."*/
   word-wrap: break-word; /*break the word into multiple line if too long*/
   word-break: keep-all; /*break at hyphen*/
   writing-mode: horizontal-tb; /*skip =))*/
@@ -217,7 +217,7 @@ div {
   transform: rotate(20deg); /*clockwise*/
   transform: rotate(-20deg); /*counter-clockwise*/
   transform: scale(2, 3); /*scale X and Y | scaleX(scale)| scaleY(scale)*/
-  transform: skew(
+  transform: skew(  /*nghieg =))*/
     20deg,
     10deg
   ); /*skew along X-Y axis | skewX(20deg)| skewY(20deg)*/
@@ -455,7 +455,7 @@ div {
   right (padding) 🡠 🡢 
   */
 
-  content: ''; /*must have*/
+  content: ""; /*must have*/
   position: absolute;
   top: 100%; /*at bottom compared to the positioned parents*/
   left: 50%;
@@ -606,7 +606,8 @@ ref: https://www.w3schools.com/css/css3_masking.asp
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
-.disableButton {  /*instead of using style*/
+.disableButton {
+  /*instead of using style*/
   opacity: 0.6;
   cursor: not-allowed;
 }
@@ -628,6 +629,185 @@ PAGINATION EXAMPE
 */
 
 /*
-MULTICOLUMN OF TEXT
+MULTICOLUMN OF TEXT - display single paragraph of text in multiple columns
 - Read later if interesting: https://www.w3schools.com/css/css3_multiple_columns.asp
 */
+
+/*
+CSS User Interface css properties
+resize: UI to resize
+outline-offset: add outline space (extra space from border)
+*/
+
+.resizeDiv {
+  resize: horizontal;
+  resize: vertical;
+  resize: both;
+  overflow: auto; /*mandatory if you want to have dragging symbol*/
+}
+
+.outsetBorder {
+  margin: 20px;
+  border: 1px solid black;
+  outline: 4px solid red;
+  outline-offset: 15px;
+}
+
+/*CSS VARIABLES
+reuseable in @media, reuseable definition such as colors, make it:
+  - makes the code easier to read (more understandable)
+  - makes it much easier to change the color values 
+SYNTAX:
+  var(--name, value)
+SCOPE: global | local
+*/
+
+/*Global scope example*/
+
+:root {
+  /*global scope*/
+  --blue: #1e90ff;
+  --white: #ffffff;
+}
+/*usage*/
+body {
+  background-color: var(--blue);
+}
+
+h2 {
+  border-bottom: 2px solid var(--blue);
+}
+
+.container {
+  color: var(--blue);
+  background-color: var(--white);
+  padding: 15px;
+}
+
+/*Local override example*/
+button {
+  --blue: #0000ff; /* local variable will override global */
+  --button-blue: #0000ff; /* new local variable */
+  background-color: var(--white);
+  color: var(--blue);
+  border: 1px solid var(--blue);
+  padding: 5px;
+}
+
+/*(optional) CSS var with vanilla JS: https://www.w3schools.com/css/css3_variables_javascript.asp*/
+
+/*Variable and @Media*/
+/* Variable declarations */
+:root {
+  --blue: #1e90ff;
+  --white: #ffffff;
+}
+
+.container {
+  --fontsize: 25px;
+}
+
+@media screen and (min-width: 450px) {  /*when the screen is >= 450*/
+  .container {
+    --fontsize: 50px;
+  }
+}
+
+/*BOX-sizing
+Without the CSS box-sizing Property
+W and H is more than you set ( = H/W + padding + border)
+With CSS box-sizing
+W and H will auto include padding and border => W and H always the same as you set (witdth: n, height: n ...)
+*/
+.WandH300 {
+  width: 300px;
+  height: 100px;
+  border: 1px solid blue;
+  box-sizing: border-box;
+}
+
+.WandHStill300WithPaddingAndBorderIncluded {
+  width: 300px;
+  height: 100px;
+  padding: 50px;
+  border: 1px solid red;
+  box-sizing: border-box;
+}
+
+/*MEDIA Queries
+create styling rules based on the capablility of the device, like:
+  width and height of the viewport
+  width and height of the device
+  orientation (is the tablet/phone in landscape or portrait mode?)
+  resolution
+
+syntax: @media not|only mediatype and (expressions) {
+  CSS-Code;
+}
+  type: all | print | screen (desktop, mobile..)
+*/
+
+@media screen and (min-width: 480px) {
+  body {
+    background-color: lightgreen;
+  }
+}
+
+@media screen and (min-width: 480px) {
+  #leftsidebar {width: 200px; float: left;}
+  #main {margin-left: 216px;}   /*this can help your whole div translate from its left side, not overlapped to the float left contents*/
+}
+
+/*More example*/
+body {
+  background-color: tan;
+  color: black;
+}
+
+/* On screens that are 992px wide or less, the background color is blue */
+@media screen and (max-width: 992px) {
+  body {
+    background-color: blue;
+    color: white;
+  }
+}
+
+/* On screens that are 600px wide or less, the background color is olive */
+@media screen and (max-width: 600px) {
+  body {
+    background-color: olive;
+    color: white;
+  }
+}
+
+/*CHANGE COLUMN NUMBER*/
+/* Create four equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 25%;
+}
+
+/* On screens that are 992px wide or less, go from four columns to two columns */
+@media screen and (max-width: 992px) {
+  .column {
+    width: 50%;
+  }
+}
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+  }
+}
+/*Change the entire layout using @media: https://www.w3schools.com/css/tryit.asp?filename=trycss_mediaqueries_website*/
+
+/*in range @media rules*/
+@media screen and (max-width: 900px) and (min-width: 600px) { /*between 600 and 900*/
+  div.example {
+    font-size: 50px;
+    padding: 50px;
+    border: 8px solid black;
+    background: yellow;
+  }
+}

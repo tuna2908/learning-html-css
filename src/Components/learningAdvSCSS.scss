@@ -1,0 +1,269 @@
+/*simple example*/
+/* Define standard variables and values for website */
+$bgcolor: lightblue;
+$textcolor: darkblue;
+$fontsize: 18px;
+
+/* Use the variables */
+body {
+  background-color: $bgcolor;
+  color: $textcolor;
+  font-size: $fontsize;
+}
+
+/*
+What is Sass?
+  Sass stands for Syntactically Awesome Stylesheet
+  Sass is an extension to CSS
+  Sass is a CSS pre-processor
+  Sass is completely compatible with all versions of CSS
+  Sass reduces repetition of CSS and therefore saves time
+  Sass was designed by Hampton Catlin and developed by Natalie Weizenbaum in 2006
+  Sass is free to download and use
+
+Why Use Sass?
+  Stylesheets are getting larger, more complex, and harder to maintain. This is where a CSS pre-processor can help.
+  Sass lets you use features that do not exist in CSS, like variables, nested rules, mixins, imports, inheritance, built-in functions, and other stuff.
+
+How Does Sass Work?
+  A browser does not understand Sass code. Therefore, you will need a Sass pre-processor to convert Sass code into standard CSS.
+  This process is called transpiling. So, you need to give a transpiler (some kind of program) some Sass code and then get some CSS code back.
+
+Sass Comments: // | cscm
+
+More info
+  Programming language - Sass is based on Ruby
+*/
+
+/*more var examples*/
+$myFont: Helvetica, sans-serif;
+$myColor: red;
+$myFontSize: 18px;
+$myWidth: 680px;
+
+body {
+  font-family: $myFont;
+  font-size: $myFontSize;
+  color: $myColor;
+}
+
+#container {
+  width: $myWidth;
+}
+
+/*local var, override its initial definition*/
+$myColor: red;
+
+h1 {
+  $myColor: green;
+  color: $myColor;
+}
+
+p {
+  color: $myColor;
+}
+
+/*global definition scope*/
+h1 {
+  $myColor: green !global;
+  color: $myColor;
+}
+
+p {
+  color: $myColor;
+}
+
+/*
+Tips: Tip: Global variables should be defined outside any rules. It could be wise to define all global variables in its own file
+, named "_globals.scss", and include the file with the @include keyword.
+*/
+
+/*nested Rules*/
+/*SELECTOR*/
+nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  li {
+    display: inline-block;
+  }
+  a {
+    display: block;
+    padding: 6px 12px;
+    text-decoration: none;
+  }
+}
+/*
+equal to
+  nav ul {}
+  nav li {}
+  nav a {}
+*/
+/*Properties*/
+/*
+font: {
+  family: Helvetica, sans-serif;
+  size: 18px;
+  weight: bold;
+}
+
+text: {
+  align: center;
+  transform: lowercase;
+  overflow: hidden;
+}
+          === 
+
+font-family: Helvetica, sans-serif;
+font-size: 18px;
+font-weight: bold;
+
+text-align: center;
+text-transform: lowercase;
+text-overflow: hidden;
+*/
+
+/*css import*/
+/*Tip: You do not need to specify a file extension, Sass automatically assumes that you mean a .sass or .scss file. */
+@import "variables";
+@import "colors";
+@import "reset";
+
+/*
+example reset.scss
+html,
+body,
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+}
+*/
+
+/*
+transpile like this
+@import "reset";
+
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: 18px;
+  color: red;
+}
+====>
+html, body, ul, ol {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: 18px;
+  color: red;
+}
+*/
+
+/*partial transpiling
+first: define  _filename;
+  eg: _colors.scss
+    $myPink: #EE82EE;
+    $myBlue: #4169E1;
+    $myGreen: #8FBC8F;
+Then
+@import "colors";
+body {
+  font-family: Helvetica, sans-serif;
+  font-size: 18px;
+  color: $myBlue;
+}
+*/
+
+/*
+@MIXIN - define simple reusable codeblocks of css code
+syntax
+  @mixin name {
+    property: value;
+    property: value;
+    ...
+  }
+usage
+  selector {
+   @include mixin-name;
+  }
+note: mixin name: abc-xyz == abc_xyz
+*/
+
+@mixin important-text {
+  color: red;
+  font-size: 25px;
+  font-weight: bold;
+  border: 1px solid blue;
+}
+
+.danger {
+  @include important-text;
+  background-color: green;
+}
+
+/*nestd mixin*/
+@mixin special-text {
+  @include important-text;
+  @include link;
+  @include special-border;
+}
+
+/*Passing Variables to a Mixin*/
+/* Define mixin with two arguments */
+@mixin bordered($color, $width) {
+  border: $width solid $color;
+}
+
+.myArticle {
+  @include bordered(blue, 1px); // Call mixin with two values
+}
+
+.myNotes {
+  @include bordered(red, 2px); // Call mixin with two values
+}
+
+@mixin bordered-with-def-val($color: blue, $width: 1px) {
+  border: $width solid $color;
+}
+
+.myTips {
+  @include bordered-with-def-val($color: orange);
+}
+
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+
+.myBox {
+  @include transform(rotate(20deg));
+}
+
+
+/*
+                  EXTENDS - INHERIT SOME STYLES
+*/
+.button-basic  {
+  border: none;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.button-report  {
+  @extend .button-basic;
+  background-color: red;
+}
+
+.button-submit  {
+  @extend .button-basic;
+  background-color: green;
+  color: white;
+}

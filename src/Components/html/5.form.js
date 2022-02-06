@@ -12,7 +12,7 @@ export const Form = () => {
        */}
       <form action="/action_page.php" target="_blank">
         {/*sematic element*/}
-        <label for="fname">First name:</label>
+        <label for="fname">First name:</label>  {/*label and input are inline el*/}
         {/*define label "for" form element(s). "for="id""*/}
         <br />
         <input type="text" id="fname" name="fname" />
@@ -54,13 +54,14 @@ export const Form = () => {
          *@row - display rows
          *@cols - display width
          *@style ="width:200px; height:600px;"
+         *@textArea is an inline el
          */}
         <textarea name="message" rows="10" cols="30">
           The cat was playing in the garden.
         </textarea>
       </form>
       <fieldset>
-        {/*group inputs in a section*/}
+        {/*group inputs in a visible bordered section*/}
         <legend>Personalia:</legend>
         {/*label of that section*/}
         <label for="fname">First name:</label>
@@ -77,7 +78,7 @@ export const Form = () => {
 
       <form action="/action_page.php">
         {/**
-         * input suggestion list
+         * input suggestion list - type to see the diff between select and datalist
          * @list = datalistId
          * */}
         <input list="browsers" />

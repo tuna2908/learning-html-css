@@ -43,7 +43,7 @@ const Paragraph = () => {
       <div>
         {/*paragraph with sepreate content line (empty element) <hr/> */}
         <p>This is some text.</p>
-        <hr />
+        <hr />  {/*Horizontal Rule or Horizontal line*/}
         <h2>This is heading 2</h2>
         <p>This is some other text.</p>
         <hr />
@@ -71,7 +71,7 @@ const Paragraph = () => {
       </div>
       <div>
         <p>Here is a quote from WWF's website:</p>
-        <blockquote cite="http://www.worldwildlife.org/who/index.html">
+        <blockquote cite="http://www.worldwildlife.org/who/index.html"> {/*do nothing but an indent div - block element*/}
           {/*citing quotes from a link*/}
           <q>
             {/* quotes sign*/}

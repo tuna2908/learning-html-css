@@ -22,7 +22,7 @@ export const Media = () => {
 
   return (
     <div>
-      <video
+      <video  //block element
         width="320"
         height="240"
         controls //add def ability to control media
