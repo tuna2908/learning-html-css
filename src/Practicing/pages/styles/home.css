@@ -1,0 +1,39 @@
+.capitalize-text {
+  text-transform: capitalize;
+  color: white;
+}
+
+.home-container {
+  background-image: url('https://i.pinimg.com/564x/91/4c/8a/914c8ad918ebadc9b8a23a18bd592c6d.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.heading {
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.nav-button {
+  border: 1px solid white;
+  display: inline-block;
+  padding: 10px 20px;
+}
+
+.nav-button:hover {
+  background-color: rgba(0, 0, 0, 0.281);
+  color: white;
+}
+
+#float-diag-bg::after {
+  content: '';
+  clear: both;
+  display: table;
+}

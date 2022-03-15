@@ -18,8 +18,8 @@ The Flexible Box Layout Module, makes it easier to design flexible responsive la
   display: flex;
   /*
     flex-direction the direction you want to stack the flex-item
-    column: from top to bottom
-    row: from left to right (default)
+    column: from top to bottom in a column
+    row: from left to right (default) in a row
     column-reverse: vertically (but from bottom to top)
     row-reverse: horizontally (but from right to left): 
   */
@@ -37,8 +37,8 @@ The Flexible Box Layout Module, makes it easier to design flexible responsive la
   flex-flow: row wrap;
   /*
     justify-content
-        flex-direction: row;    align flex-items horizontally
-        flex-direction: column;    align flex-items vertically
+    flex-direction: row;    align flex-items horizontally
+    flex-direction: column;    align flex-items vertically
   */
   justify-content: center; /*Items center*/
   justify-content: flex-start; /*Items in beginning*/
@@ -47,8 +47,8 @@ The Flexible Box Layout Module, makes it easier to design flexible responsive la
   justify-content: space-between; /*see it yourself*/
   /*
     align-items
-        flex-direction: row;    align flex-items vertically
-        flex-direction: column;    align flex-items horizontally
+    flex-direction: row;    align flex-items vertically
+    flex-direction: column;    align flex-items horizontally
   */
   align-items: center;
   align-items: flex-start;
@@ -63,7 +63,7 @@ The Flexible Box Layout Module, makes it easier to design flexible responsive la
         - align-items: align item in its row, whereas align-content align all items in the container
   */
   height: 600px; /*need to have extra space, to be aligned*/
-  flex-wrap: wrap; /*neeed wrap => more than one row*/
+  flex-wrap: wrap; /*need wrap => more than one row*/
   align-content: space-between;
 }
 

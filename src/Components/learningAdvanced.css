@@ -66,7 +66,7 @@
   background-size: contain; /*scale the img both W and H as much as possible*/
   background-size: cover; /*completely cover the img - some part can be cropped*/
   background-size: "no-background-size"; /*no size, original size*/
-
+ 
   /*multiple size example*/
   background: url(img_tree.gif) left top no-repeat,
     url(img_flwr.gif) right bottom no-repeat, url(paper.gif) left top repeat;
@@ -180,7 +180,7 @@ div {
 
 /*text effect*/
 .crippedAndEllipsis {
-  white-space: nowrap; /*no wrap to multiple line (just one) | def: none*/
+  white-space: nowrap; /*no wrap to multiple line (just one) | def: none | normal: wrap when necessary*/
   width: 200px;
   border: 1px solid #000000;
   overflow: hidden; /*hidden the overfow part (M) | def: visible*/
@@ -218,8 +218,8 @@ div {
   transform: rotate(-20deg); /*counter-clockwise*/
   transform: scale(2, 3); /*scale X and Y | scaleX(scale)| scaleY(scale)*/
   transform: skew(  /*nghieg =))*/
-    20deg,
-    10deg
+    0deg,
+    180deg
   ); /*skew along X-Y axis | skewX(20deg)| skewY(20deg)*/
 
   transform: matrix(

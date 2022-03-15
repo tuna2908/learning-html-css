@@ -83,7 +83,7 @@ const Paragraph = () => {
         </blockquote>
 
         <p>
-          {/* abbreviation tooltip => word for short*/}
+          {/* abbreviation tooltip => word for short. Like span but semantic*/}
           The <abbr title="World Health Organization">WHO</abbr> was founded in
           1948.
           <cite>The Scream</cite> {/* cite text render in italics*/}

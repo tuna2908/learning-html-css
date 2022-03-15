@@ -11,5 +11,9 @@
 - set the height to relative em (relative to font line, ig: 3 line = 3.2 em)
 - set word-wrap
 text-overflow: ellipsis;
-word-wrap: break-word;
+word-wrap: break-word;  //cs white-space: normal vs overflow-wrap
 overflow: hidden;
+
+5. diagonal background
+- using mask
+- using border and box-sizing  

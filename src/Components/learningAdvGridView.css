@@ -32,7 +32,6 @@
   grid-template-columns: auto auto auto auto; /*=> 4 col with same W*/
   grid-template-columns: 80px 200px auto 40px; /*4 col with diff width*/
   grid-template-rows: 80px 200px; /*2 row with diff H*/
-
   /*
     justify-content - align the whole grid inside the container.
     note: The grid's total width has to be less than the container's width for the justify-content property to have any effect. (like align-content)

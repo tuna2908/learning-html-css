@@ -1,0 +1,18 @@
+.diagonal-bg {
+  width: 60%;
+  height: 700px;
+  box-sizing: border-box;
+  float: right;
+  background-image: url('https://i.pinimg.com/564x/fd/00/98/fd00984025b813f8da694ca720b39111.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  border-left: 200px solid white;
+  border-top: 700px solid transparent;
+}
+
+.parallax-bg {
+  background-size: cover;
+  background-attachment: fixed;
+}
